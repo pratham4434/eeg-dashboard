@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
+import Patients from "./pages/Patients";
 
 function App() {
-
   return (
-    <div className=' bg-red-300'>
-     <h1 className='text-3xl'>Hello</h1>
-    </div>
-  )
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/patients" element={<Patients />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
