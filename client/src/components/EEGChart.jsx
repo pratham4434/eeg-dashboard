@@ -1,4 +1,4 @@
-import eegData from "../data/data.json";
+import eegData from "../data/data-original.json";
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 // import eegData from './data.json';
@@ -24,7 +24,7 @@ const EEGChart = () => {
 
     // Define margins
   const margin = { top: 30, right: 30, bottom: 30, left: 40 };
-  const width = 1920;
+  const width = 1900;
   const height = 200;
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
@@ -40,12 +40,12 @@ const EEGChart = () => {
     // Create scales
     const xScale = d3
       .scaleLinear()
-      .domain([0, fp1DataNumbers.length - 1])
+      .domain([0, fp1DataNumbers.length-1])
       .range([0, innerWidth]);
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(fp1DataNumbers)])
+      .domain([d3.min(fp1DataNumbers), d3.max(fp1DataNumbers)])
       .range([innerHeight, 0]);
 
     // Create line generator
@@ -76,7 +76,7 @@ const EEGChart = () => {
       .attr("transform", `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
   }, []);
-  return <svg className="w-full max-w-full self-center" ref={svgRef} width={1920} height={200}></svg>;
+  return <svg className="w-full max-w-full self-center" ref={svgRef} width={1900} height={200}></svg>;
 
 //   return <svg className="w-full max-w-full self-center" ref={svgRef} width={1920} height={200}></svg>;
 };

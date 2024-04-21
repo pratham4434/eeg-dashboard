@@ -27,10 +27,10 @@ function MenuBar() {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <div className="flex items-center">
-            <p className="text-white text-lg font-semibold mr-2">
+            <p className="text-white text-3xl mr-2 pl-10">
               Patient Name
             </p>
-            <p className="text-blue-500 font-semibold">Patient ID</p>
+            <p className="text-blue-300 justify-end ">Patient ID</p>
           </div>
         </div>
 
