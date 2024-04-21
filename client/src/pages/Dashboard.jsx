@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
       <MenuBar />
-      <TimelineBar />
+      <TimelineBar highPass= "1Hz" lowPass="30Hz" notch="50Hz" duration="00:00:00/00:06:32"/>
 
       {/* //channelName="Fp1" */}
       <div className="flex flex-col">

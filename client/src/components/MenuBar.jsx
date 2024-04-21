@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  FiMenu,
   FiSettings,
   FiEdit,
   FiFileText,
@@ -27,10 +26,10 @@ function MenuBar() {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex ">
           <div className="flex px-4">
-            <p className="text-white text-3xl mr-2 pl-10">
-              Patient Name
-            </p>
-            <p className="text-blue-300 justify-end ">Patient ID</p>
+            <p className="text-white text-2xl ml-4 mr-2 pt-4 pb-1">Healthy Patient</p>
+            <div className="flex flex-col justify-end">
+              <p className="text-blue-300 pb-1">Patient ID</p>
+            </div>
           </div>
         </div>
 
@@ -50,7 +49,7 @@ function MenuBar() {
           </button>
           <button
             onClick={handleSettingsClick}
-            className="bg-blue-500 hover:bg-blue-800 text-white px-4 py-2 rounded-lg mr-2"
+            className="bg-blue-500 hover:bg-blue-800 text-white px-4 py-2 rounded-lg "
           >
             <FiSettings className="inline-block mr-1" />
             Settings
@@ -96,7 +95,7 @@ function MenuBar() {
                   className="px-4 py-2 rounded-lg mb-2"
                 />
               </div>
-              
+
               <div className="flex items-center ml-auto">
                 <div
                   className="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer"

@@ -14,14 +14,14 @@ function Header() {
   return (
     <>
       <nav className="bg-gray-800 shadow-lg">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto ">
           <div className="flex justify-between items-center h-16">
             {/* Back Button */}
             <div className="flex items-center">
               <button className="text-white focus:outline-none">
-                <FiArrowLeft className="h-6 w-6 mr-2" />
+                <FiArrowLeft className="h-6 w-6 mr-1 text-2xl" />
               </button>
-              <h1 className="text-white text-lg font-bold ml-4">Dashboard</h1>
+              <h1 className="text-white text-2xl font-bold ml-2">Dashboard</h1>
             </div>
 
             {/* Nav Links */}
@@ -43,19 +43,19 @@ function Header() {
                 {isDropdownOpen && (
                   <div className="absolute bg-gray-700 rounded-lg py-2 mt-1 w-32 z-10">
                     <a
-                      href="#"
+                      href="/"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                     >
                       Case Study 1
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                     >
                       Case Study 2
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                     >
                       Case Study 3

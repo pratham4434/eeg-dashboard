@@ -7,9 +7,10 @@ const EEGChart = ({channelName}) => {
   
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    console.log(channelName)
+    // console.log(channelName)
+
     // Define margins
-    const margin = { top: 30, right: 40, bottom: 30, left: 50 };
+    const margin = { top: 30, right: 40, bottom: 30, left: 45 };
 
     // Get dimensions of the container
     const containerWidth = svgRef.current.parentElement.clientWidth;
@@ -74,7 +75,7 @@ const EEGChart = ({channelName}) => {
         className="w-full"
         width="100%"
         height={200}
-        style={{ overflow: "visible" }}
+        // style={{ overflow: "visible" }}
       ></svg>
     </div>
   );
