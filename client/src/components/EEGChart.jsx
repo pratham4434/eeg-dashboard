@@ -1,52 +1,42 @@
-import eegData from "../data/data-original.json";
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
-// import eegData from './data.json';
+import eegData from "../data/data-original.json";
 
-const EEGChart = () => {
+const EEGChart = ({channelName}) => {
   const svgRef = useRef();
+  
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-
+    console.log(channelName)
     // Define margins
-    // const width = 928;
-    // const height = 100;
-    // const marginTop = 30;
-    // const marginRight = 30;
-    // const marginBottom = 30;
-    // const marginLeft = 40;
-    // const margin = { top: 30, right: 30, bottom: 30, left: 40 };
-    // const width = 928;
-    // const height = 100 ;
+    const margin = { top: 30, right: 40, bottom: 30, left: 50 };
 
+    // Get dimensions of the container
+    const containerWidth = svgRef.current.parentElement.clientWidth;
 
+    // Fixed height for the chart
+    const height = 200 - margin.top - margin.bottom;
 
-
-    // Define margins
-  const margin = { top: 30, right: 30, bottom: 30, left: 40 };
-  const width = 1900;
-  const height = 200;
-  const innerWidth = width - margin.left - margin.right;
-  const innerHeight = height - margin.top - margin.bottom;
+    // Calculate width excluding margins
+    const width = containerWidth - margin.left - margin.right;
 
     // Extract data for the "Fp1" channel
-    const fp1Data = eegData.map((d) => d["Fp1"]);
-    console.log(fp1Data);
+    const fp1Data = eegData.map((d) => d[channelName]);
+    // const fp1Data = eegData.map((d) => d["Fp1"]);
 
     // Convert fp1Data values from strings to numbers
     const fp1DataNumbers = fp1Data.map(parseFloat);
-    console.log(fp1DataNumbers);
 
     // Create scales
     const xScale = d3
       .scaleLinear()
-      .domain([0, fp1DataNumbers.length-1])
-      .range([0, innerWidth]);
+      .domain([0, fp1DataNumbers.length/4])
+      .range([0, width]);
 
     const yScale = d3
       .scaleLinear()
       .domain([d3.min(fp1DataNumbers), d3.max(fp1DataNumbers)])
-      .range([innerHeight, 0]);
+      .range([height, 0]);
 
     // Create line generator
     const line = d3
@@ -60,7 +50,7 @@ const EEGChart = () => {
       .datum(fp1DataNumbers)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 1.25)
       .attr("d", line)
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -69,16 +59,25 @@ const EEGChart = () => {
     const yAxis = d3.axisLeft(yScale);
     svg
       .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top + innerHeight})`)
+      .attr("transform", `translate(${margin.left}, ${margin.top + height})`)
       .call(xAxis);
     svg
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`)
       .call(yAxis);
-  }, []);
-  return <svg className="w-full max-w-full self-center" ref={svgRef} width={1900} height={200}></svg>;
+  }, [channelName]);
 
-//   return <svg className="w-full max-w-full self-center" ref={svgRef} width={1920} height={200}></svg>;
+  return (
+    <div className="w-full max-w-full mx-auto">
+      <svg
+        ref={svgRef}
+        className="w-full"
+        width="100%"
+        height={200}
+        style={{ overflow: "visible" }}
+      ></svg>
+    </div>
+  );
 };
 
 export default EEGChart;

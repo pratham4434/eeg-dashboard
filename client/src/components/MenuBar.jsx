@@ -25,8 +25,8 @@ function MenuBar() {
   return (
     <div className="bg-gray-900  py-2">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <div className="flex items-center">
+        <div className="flex ">
+          <div className="flex px-4">
             <p className="text-white text-3xl mr-2 pl-10">
               Patient Name
             </p>
