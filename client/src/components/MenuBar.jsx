@@ -61,7 +61,7 @@ function MenuBar() {
       {/* Settings Inputs */}
       {showSettingsInputs && (
         <div
-          className={`mx-auto mt-2 bg-gray-800 p-4 transition-all duration-500 rounded-lg`}
+          className={`mx-auto mt-2 bg-gray-900 p-4 transition-all duration-500 rounded-lg`}
         >
           <div
             className={`container mx-auto mt-2 bg-gray-800 p-4 transition-all duration-500 rounded-lg`}
