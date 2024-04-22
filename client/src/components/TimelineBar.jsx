@@ -57,7 +57,7 @@ function TimelineBar({ highPass, lowPass, notch , duration}) {
         </div>
 
         {/* Right (High Pass, Low Pass, Notch) */}
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end mr-4">
           <p className="text-white mb-1">High Pass: {highPass}</p>
           <p className="text-white mb-1">Low Pass: {lowPass}</p>
           <p className="text-white">Notch: {notch}</p>

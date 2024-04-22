@@ -31,7 +31,7 @@ const EEGChart = ({channelName}) => {
     // Create scales
     const xScale = d3
       .scaleLinear()
-      .domain([0, fp1DataNumbers.length/4])
+      .domain([0, fp1DataNumbers.length-1])
       .range([0, width]);
 
     const yScale = d3
