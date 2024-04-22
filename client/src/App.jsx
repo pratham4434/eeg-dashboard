@@ -9,6 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
+        
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/patients" element={<Patients />} />

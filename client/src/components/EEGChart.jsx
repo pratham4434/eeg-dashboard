@@ -55,7 +55,7 @@ const EEGChart = ({ channelName }) => {
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3.axisLeft(yScale);
     const yAxis1 = d3.axisLeft(yScale)
-    .tickValues([d3.min(channelDataNumbers), d3.max(channelDataNumbers)]);
+      .tickValues([d3.min(channelDataNumbers), d3.max(channelDataNumbers)]);
 
     svg
       .append("g")
@@ -95,6 +95,17 @@ const EEGChart = ({ channelName }) => {
           .style("background", "#fff") // Add background color
           .style("border", "1px solid #ddd") // Add border
           .style("padding", "5px"); // Add padding
+
+        // Remove previous dot
+        svg.selectAll(".dot").remove();
+
+        // Append a new dot
+        svg.append("circle")
+          .attr("class", "dot")
+          .attr("cx", xScale(index) + margin.left)
+          .attr("cy", yScale(value) + margin.top)
+          .attr("r", 4)
+          .style("fill", "rgb(23 37 84)");
       });
   }, [channelName]);
 
