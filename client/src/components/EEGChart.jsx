@@ -9,7 +9,7 @@ const EEGChart = ({ channelName }) => {
     const svg = d3.select(svgRef.current);
 
     // Define margins
-    const margin = { top: 30, right: 40, bottom: 30, left: 45 };
+    const margin = { top: 15, right: 40, bottom: 20, left: 45 };
 
     // Get dimensions of the container
     const containerWidth = svgRef.current.parentElement.clientWidth;
@@ -104,7 +104,7 @@ const EEGChart = ({ channelName }) => {
         ref={svgRef}
         className="w-full"
         width="100%"
-        height={200}
+        height={190}
       ></svg>
     </div>
   );

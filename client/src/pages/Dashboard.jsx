@@ -20,7 +20,7 @@ function Dashboard() {
           <div className="flex text-2xl items-center justify-center rounded-md rounded-tl-none rounded-bl-none bg-gray-300 w-[80px]">
             Fp1
           </div>
-          <div className="w-full">
+          <div className="w-full p-0">
             <EEGChart channelName="Fp1" />
           </div>
         </div>
